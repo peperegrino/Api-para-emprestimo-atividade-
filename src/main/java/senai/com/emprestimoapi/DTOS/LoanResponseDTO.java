@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import senai.com.emprestimoapi.entities.Loan;
 
 import java.util.Date;
 
@@ -14,4 +15,7 @@ import java.util.Date;
 public class LoanResponseDTO {
     private Date loanDate;
     private Date devolutionDate;
+
+    public LoanResponseDTO(Loan loan) {
+    }
 }

@@ -1,6 +1,7 @@
 package senai.com.emprestimoapi.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,7 @@ public class Loan {
     @JoinColumn(name = "client_id")
     private User client;
 
+    public Loan(@NotBlank Date loanDate, @NotBlank Date devolutionDate) {
+    }
 }
 
