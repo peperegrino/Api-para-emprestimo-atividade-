@@ -1,10 +1,8 @@
 package senai.com.emprestimoapi.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 import java.util.Date;
 
@@ -26,4 +24,6 @@ public class Wallet {
     @MapsId
     private User user;
 
+    public Wallet(@NonNull Date emissionDate, @NotBlank Isvalid isvalid) {
+    }
 }
