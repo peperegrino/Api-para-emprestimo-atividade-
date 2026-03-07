@@ -6,7 +6,6 @@ import senai.com.emprestimoapi.DTOS.UserResponseDTO;
 import senai.com.emprestimoapi.Repositories.UserRepository;
 import senai.com.emprestimoapi.entities.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,21 +24,22 @@ public class UserService {
     }
 
     public List<User> showUsers() {
-        List<User> users = userRepository.findAll();
-        return users;
+        return userRepository.findAll();
     }
 
-    public void deletUser(Long id) {
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
 
     }
 
-    public User updateuser(Long id , UserRequestDTO dto) {
+
+    public User updateUser(Long id , UserRequestDTO dto) {
         User u = userRepository.findById(id);
 
         if (u != null){
             u.setName(dto.getNome());
             u.setEmail(dto.getEmail());
-            return u;
+            return userRepository.save(u);
         }else {
             return null;
         }

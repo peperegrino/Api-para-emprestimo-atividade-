@@ -9,4 +9,5 @@ import senai.com.emprestimoapi.entities.User;
 public interface UserRepository extends JpaRepository<User, Loan> {
 
     User findById(Long id);
+    void deleteById(Long id);
 }
