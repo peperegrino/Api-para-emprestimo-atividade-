@@ -16,4 +16,7 @@ import java.util.Date;
 public class WalletResponseDTO {
     private Date emissionDate;
     private Isvalid isvalid;
+
+    public WalletResponseDTO(Wallet wallet) {
+    }
 }

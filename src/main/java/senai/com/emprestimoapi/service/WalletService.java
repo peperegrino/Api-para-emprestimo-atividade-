@@ -23,9 +23,9 @@ public class WalletService {
         public WalletResponseDTO createWallet(WalletRequestDTO dto) {
             Wallet wallet = new Wallet(dto.getEmissionDate(), dto.getIsvalid());
             walletRepository.save(wallet);
-            return new UserResponseDTO(wallet);
+            return new WalletResponseDTO(wallet);
         }
 
 
     }
-}
+
