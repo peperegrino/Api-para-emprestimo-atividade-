@@ -30,7 +30,7 @@ public class User {
     private List<Loan> loans = new ArrayList<>();
 
 
-    @OneToOne(mappedBy = "wallet", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
         private Wallet wallet;
 
 

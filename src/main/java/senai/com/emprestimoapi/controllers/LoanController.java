@@ -8,7 +8,7 @@ import senai.com.emprestimoapi.DTOS.UserRequestDTO;
 import senai.com.emprestimoapi.service.LoanService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/loan")
 public class LoanController {
     private final LoanService loanService;
 
@@ -17,23 +17,23 @@ public class LoanController {
         this.loanService = loanService;
     }
 
-    @PostMapping
-    public ResponseEntity<?> addLoan(@Valid @RequestBody LoanRequestDTO dto) {
+    @PostMapping("/loans")
+    public ResponseEntity<?> createLoan(@Valid @RequestBody LoanRequestDTO dto) {
         return ResponseEntity.ok(loanService.createLoan(dto));
     }
 
-    @GetMapping
-    public ResponseEntity<?> getLoans() {
+    @GetMapping("/loans")
+    public ResponseEntity<?> showLoans() {
         return ResponseEntity.ok(loanService.showLoans());
     }
 
-    @DeleteMapping
-    public void delete(@Valid @RequestBody Long id) {
+    @DeleteMapping("loans/{id}")
+    public void deleteLoan(@Valid @RequestBody Long id) {
         loanService.deleteLoan(id);
     }
 
-    @PutMapping
-    public ResponseEntity<?> update(@Valid @RequestBody Long id, LoanRequestDTO dto ) {
+    @PutMapping("loans/{id}")
+    public ResponseEntity<?> updateLoan(@Valid @RequestBody Long id, LoanRequestDTO dto ) {
         return ResponseEntity.ok(loanService.updateLoan(id, dto));
     }
 }

@@ -5,12 +5,13 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import senai.com.emprestimoapi.DTOS.UserRequestDTO;
+import senai.com.emprestimoapi.DTOS.UserResponseDTO;
 import senai.com.emprestimoapi.Repositories.UserRepository;
 import senai.com.emprestimoapi.entities.User;
 import senai.com.emprestimoapi.service.UserService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/user")
 public class UserController {
 
    private final UserService userService;
@@ -19,24 +20,24 @@ public class UserController {
        this.userService = userService;
    }
 
-    @PostMapping
-    public ResponseEntity<?> addUser(@Valid @RequestBody UserRequestDTO dto) {
+    @PostMapping("/users")
+    public ResponseEntity<?> createUser(@Valid @RequestBody UserRequestDTO dto) {
         return ResponseEntity.ok(userService.createUser(dto));
     }
 
-    @GetMapping
+    @GetMapping("/users")
     public ResponseEntity<?> showAllUsers() {
         return ResponseEntity.ok(userService.showUsers());
     }
 
-    @DeleteMapping
-    public void delete(@Valid @RequestBody Long id) {
+    @DeleteMapping("users/{id}")
+    public void deleteUser(@Valid @RequestBody Long id) {
      userService.deleteUser(id);
 
     }
 
-    @PutMapping
-    public ResponseEntity<?> update(@Valid @RequestBody Long id, UserRequestDTO dto ) {
+    @PutMapping("users/{id}")
+    public ResponseEntity<?> updateUser(@Valid @RequestBody Long id, UserRequestDTO dto ) {
         return ResponseEntity.ok(userService.updateUser(id, dto));
     }
 
