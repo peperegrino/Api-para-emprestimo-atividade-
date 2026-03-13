@@ -18,12 +18,16 @@ public class Wallet {
     private Long walletNum;
 
     private Date emissionDate;
-    private Isvalid isvalid;
+    private boolean isvalid;
 
     @OneToOne
     @MapsId
     private User user;
 
-    public Wallet(@NonNull Date emissionDate, @NotBlank Isvalid isvalid) {
+    public Wallet(Long walletNum, Date emissionDate, boolean isvalid, User user) {
+        this.walletNum = walletNum;
+        this.emissionDate = emissionDate;
+        this.isvalid = isvalid;
+        this.user = user;
     }
 }

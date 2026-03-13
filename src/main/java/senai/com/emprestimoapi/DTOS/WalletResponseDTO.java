@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import senai.com.emprestimoapi.entities.Isvalid;
 import senai.com.emprestimoapi.entities.Wallet;
 
 import java.util.Date;
@@ -15,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class WalletResponseDTO {
     private Date emissionDate;
-    private Isvalid isvalid;
+    private boolean isvalid;
 
     public WalletResponseDTO(Wallet wallet) {
     }

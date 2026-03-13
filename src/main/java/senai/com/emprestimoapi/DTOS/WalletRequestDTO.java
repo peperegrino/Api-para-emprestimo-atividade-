@@ -2,7 +2,6 @@ package senai.com.emprestimoapi.DTOS;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import senai.com.emprestimoapi.entities.Isvalid;
 
 import java.util.Date;
 
@@ -12,9 +11,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class WalletRequestDTO {
 
+    private Long userId;
+
     @NonNull
     private Date emissionDate;
 
     @NotBlank
-    private Isvalid isvalid;
+    private boolean isvalid;
 }

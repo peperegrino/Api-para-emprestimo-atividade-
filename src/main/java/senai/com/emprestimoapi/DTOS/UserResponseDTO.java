@@ -15,5 +15,7 @@ public class UserResponseDTO {
     private String email;
 
     public UserResponseDTO(User u) {
+        this.nome = u.getName();
+        this.email = u.getEmail();
     }
 }

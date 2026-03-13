@@ -26,7 +26,11 @@ public class Loan {
     @JoinColumn(name = "client_id")
     private User client;
 
-    public Loan(@NotBlank Date loanDate, @NotBlank Date devolutionDate) {
+    public Loan(Long id, Date loanDate, Date devolutionDate, User client) {
+        this.id = id;
+        this.loanDate = loanDate;
+        this.devolutionDate = devolutionDate;
+        this.client = client;
     }
 }
 
